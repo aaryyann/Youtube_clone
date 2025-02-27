@@ -1,25 +1,3 @@
-const url = 'https://youtube138.p.rapidapi.com/v2/trending';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '74494cbd24msh48c2f1e4f904eaep1cb72ajsn35e21edf2bf0',
-		'x-rapidapi-host': 'youtube138.p.rapidapi.com'
-	}
-};
-
-const getData = () => {
-
-    const res = fetch(url , options)
-    res.then(r => {
-        const res2 = r.json()
-        res2.then((data) => {
-            console.log(data)
-        })
-    }).catch(err => {
-        alert(err.message)
-    })
-}
-
 const dummyData = [
     {
       "type": "video",
@@ -5723,33 +5701,27 @@ const dummyData = [
     }
   ]
 
-// getData()
-const rootElement = document.querySelector('main')
+  const root = document.querySelector('main');
 
-const showUI = (list) => {
-    list.forEach((element , idx) => {
-        const newCard = document.createElement('div')
-        newCard.className = 'card'
-        newCard.addEventListener('https://www.youtube.com/watch?v=' , )
-        newCard.innerHTML = `
-        <div>
-        <img src="${element.videoThumbnails[0].url}" width="100%" onmouseover="handleChange(event , ${idx})"/>
-        </div>
-        <p>${element.author}</p>
-        <p>${element.title}</p>
-        `
-
-        rootElement.appendChild(newCard)
-    });
-}
-
-const handleChange = (e , idx) => {
-    e.target.src = dummyData[idx].videoThumbnails[0].url
-}
-
-
-const playVedio = () => {
+  const showUi = (list,idx)=>{
+      list.forEach(element => {
+          const newCard = document.createElement('div');
+          newCard.className = 'card';
+          newCard.innerHTML = `
+          <img src='${element.videoThumbnails[0].url}' onmousehover='handleHover(event,${idx})'>
+          <h6>${element.author}</h6>
+          <h4>${element.title}</h4>
+          `
+  
+          newCard.addEventListener('click',()=>{
+              window.open(`./video.html?id=${element.videoId}`,'_top');
+              // console.log(element.videoId)
+          });
+          root.appendChild(newCard);
+      });
+  }
     
-}
-
-showUI(dummyData)
+  
+  
+  
+  showUi(dummyData);

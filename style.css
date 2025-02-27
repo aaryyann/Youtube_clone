@@ -2,12 +2,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 100px auto;
+    grid-template-rows: 100px calc(100vh-100px);
     grid-template-columns: 200px 1fr;
 }
 
@@ -16,29 +17,77 @@ header {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    background-color: lavender;
+    background-color: #0F0F0F;
     grid-column-start: 1;
     grid-column-end: 3;
+    padding: 20px;
+   
+}
+
+header input{
+    background-color: black;
+    width: 30%;
+    height: 2rem;
+    padding: 10px;
+    border-radius: 12px;
+    color:whitesmoke;
+}
+
+header button{
+    padding: 9px;
+    background-color: red;
+    border-radius: 12px;
+    font-weight: bold;
+    
 }
 
 aside{
-    background-color: aqua;
+    background-color: #0F0F0F;
+    text-align: center;
+
+}
+
+aside a{
+    text-decoration: none;
+    color: white;
+    
+
 }
 
 main{
-    background-color: blueviolet;
+    background:#0F0F0F;
     display: grid;
-    grid-template-columns: repeat(auto-fit , 18rem);
+    grid-template-columns: repeat(auto-fit , 25rem);
     grid-auto-rows: auto;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     padding: 2rem;
 }
 
 .card{
-    background-color: blanchedalmond;
-    min-height: 230px;
+    background-color: rgb(66, 66, 66);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     padding: 10px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.card img{
+    height: 60%;
+    width: 100%;
+    border-radius: 10px;
+    
+}
 
+.card h6{
+    margin-top: 7px;
+
+}
+
+.card:hover{
+    zoom: 1.19;
+}
